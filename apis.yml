@@ -17,7 +17,7 @@ description: >-
   lifecycle. The project is MIT licensed and currently in maintenance mode;
   Railway recommends Railpack as the actively developed successor.
 url: https://raw.githubusercontent.com/api-evangelist/nixpacks/refs/heads/main/apis.yml
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 type: Index
 position: Consuming
 access: 3rd-Party
