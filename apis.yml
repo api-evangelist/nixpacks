@@ -163,6 +163,8 @@ apis:
       - type: Documentation
         url: https://nixpacks.com/docs/guides/github-actions
 common:
+  - type: DomainSecurity
+    url: security/nixpacks-domain-security.yml
   - type: Website
     name: Nixpacks Website
     description: Official Nixpacks marketing and documentation site.
