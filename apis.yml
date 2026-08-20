@@ -33,6 +33,21 @@ type: Index
 position: Consuming
 access: 3rd-Party
 tags:
+  - Build Tools
+  - Buildpacks
+  - Docker
+  - OCI
+  - Nix
+  - Nixpkgs
+  - Container Image
+  - Application Packaging
+  - Railway
+  - Open-Source
+  - Rust
+  - DevOps
+  - Platform Engineering
+  - Platform-as-a-Service
+tags_raw:
   - Build Tool
   - Buildpacks
   - Docker
@@ -66,6 +81,11 @@ apis:
       Docker image, and GitHub releases.
     humanURL: https://nixpacks.com/docs/cli
     tags:
+      - CLI
+      - Builds
+      - Plan
+      - Detect
+    tags_raw:
       - CLI
       - Build
       - Plan
@@ -145,6 +165,11 @@ apis:
     tags:
       - Providers
       - Detection
+      - Language
+      - Frameworks
+    tags_raw:
+      - Providers
+      - Detection
       - Languages
       - Frameworks
     properties:
@@ -164,6 +189,11 @@ apis:
       GitHub Container Registry, Docker Hub, or any OCI-compliant registry.
     humanURL: https://github.com/iloveitaly/github-action-nixpacks
     tags:
+      - GitHub Actions
+      - CI/CD
+      - Builds
+      - Container Image
+    tags_raw:
       - GitHub Actions
       - CI/CD
       - Build
