@@ -45,7 +45,7 @@ type: Index
 position: Consuming
 access: 3rd-Party
 tags:
-  - Build Tools
+  - Build Tool
   - Buildpacks
   - Docker
   - OCI
@@ -58,7 +58,7 @@ tags:
   - Rust
   - DevOps
   - Platform Engineering
-  - Platform-as-a-Service
+  - PaaS
 tags_raw:
   - Build Tool
   - Buildpacks
