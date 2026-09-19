@@ -51,7 +51,7 @@ tags:
   - OCI
   - Nix
   - Nixpkgs
-  - Container Image
+  - Container Images
   - Application Packaging
   - Railway
   - Open-Source
@@ -178,7 +178,7 @@ apis:
       - Providers
       - Detection
       - Language
-      - Frameworks
+      - Framework
     tags_raw:
       - Providers
       - Detection
@@ -204,7 +204,7 @@ apis:
       - GitHub Actions
       - CI/CD
       - Builds
-      - Container Image
+      - Container Images
     tags_raw:
       - GitHub Actions
       - CI/CD
