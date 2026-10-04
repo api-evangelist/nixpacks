@@ -54,7 +54,7 @@ tags:
   - Container Images
   - Application Packaging
   - Railway
-  - Open-Source
+  - Open Source
   - Rust
   - DevOps
   - Platform Engineering
@@ -74,6 +74,7 @@ tags_raw:
   - DevOps
   - Platform Engineering
   - PaaS
+  - Open-Source
 created: '2026-05-24'
 modified: '2026-05-24'
 specificationVersion: '0.23'
