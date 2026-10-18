@@ -46,7 +46,7 @@ position: Consuming
 access: 3rd-Party
 tags:
   - Build Tools
-  - Buildpacks
+  - Cloud Native Buildpacks
   - Docker
   - OCI
   - Nix
