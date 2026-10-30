@@ -1,4 +1,4 @@
-# Nixpacks (nixpacks)
+# Nixpacks
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,118 +64,91 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Nixpacks is an open-source build tool from Railway that converts application source code into OCI-compliant Docker images by combining language-specific providers, Nix packages, and Buildkit. It inspects a project, selects one or more providers (Node, Python, Ruby, Go, Java, Rust, PHP, Elixir, Deno, Crystal, .NET, Swift, Scala, Dart, Haskell, Gleam, Zig, Clojure, and more), and produces a reproducible build plan of setup, install, build, and start phases. Plans can be customized via `nixpacks.toml`, CLI flags, or environment variables. The project is MIT licensed and currently in maintenance mode; Railway recommends Railpack as the actively developed successor.
+Nixpacks is an open-source build tool that converts application source code into OCI-compliant Docker images by combining language-specific providers, Nix packages, and Buildkit. Originally created by Railway as the build system powering the Railway platform, Nixpacks inspects a project's source, selects one or more providers (Node, Python, Ruby, Go, Java, Rust, PHP, Elixir, Deno, Crystal, .NET, Swift, Scala, Dart, Haskell, Gleam, Zig, Clojure, Lunatic, Cobol, Scheme, F#, Staticfile, and more), and produces a reproducible build plan composed of setup, install, build, and start phases. The plan declares Nix packages, apt packages, environment variables, commands, and cache directories, and can be customized via a `nixpacks.toml` file, CLI flags, or environment variables. Compared with Cloud Native Buildpacks, Nixpacks uses Nix as its package layer, ships as a single Rust CLI, and outputs a plain Dockerfile/OCI image without requiring a buildpack lifecycle. The project is MIT licensed and currently in maintenance mode; Railway recommends Railpack as the actively developed successor.
 
-**URL:** [Visit APIs.json URL](https://nixpacks.com)
+**Areas:** Build Tools · Buildpacks · Docker · OCI · Nix · Nixpkgs · Container Images · Application Packaging · Railway · Open Source · Rust · DevOps
 
-## Scope
+## Nixpacks on APIs.io
 
-- **Type:** Index
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for Nixpacks is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nixpacks/](https://apis.io/providers/nixpacks/)** — or go straight to one of the APIs or properties below.
 
-## Tags:
+### APIs (5)
 
- - Build Tool, Buildpacks, Docker, OCI, Nix, Nixpkgs, Container Image, Application Packaging, Railway, Open Source, Rust, DevOps, Platform Engineering, PaaS
+- [Nixpacks CLI](https://apis.io/apis/nixpacks/cli/) — The Nixpacks command-line interface is the primary interface for generating build plans and producing Docker images from application source. Core commands…
+- [Nixpacks Build Plan](https://apis.io/apis/nixpacks/build-plan/) — The Nixpacks build plan is the JSON representation of how a source directory will be turned into a container image. A plan declares the list of providers…
+- [Nixpacks Configuration File (nixpacks.toml)](https://apis.io/apis/nixpacks/configuration-file/) — Projects can override or extend the auto-detected build plan by committing a `nixpacks.toml` (or `nixpacks.json`) file at the root of the repository. The…
+- [Nixpacks Language Providers](https://apis.io/apis/nixpacks/providers/) — Providers are the pluggable modules that detect a language or framework in the source directory and contribute their portion of the build plan. Nixpacks…
+- [Nixpacks GitHub Action](https://apis.io/apis/nixpacks/github-action/) — The official `iloveitaly/github-action-nixpacks` GitHub Action wraps the Nixpacks CLI so that CI pipelines can build and optionally push OCI images directly…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-24
-- **Modified:** 2026-05-24
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (1)
 
-### Nixpacks CLI
-The Nixpacks command-line interface is the primary interface for generating build plans and producing Docker images from application source. Core commands include `nixpacks plan`, `nixpacks build`, and `nixpacks detect`. The CLI accepts inline overrides for install, build, and start commands, Nix and apt packages, environment variables, the base build image, and a separate runtime image, and is distributed as a single Rust binary via Homebrew, install script, Docker image, and GitHub releases.
+Authentication, trust centre, and vulnerability disclosure.
 
-**Human URL:** [https://nixpacks.com/docs/cli](https://nixpacks.com/docs/cli)
+- [Nixpacks Domain Security](https://apis.io/security/nixpacks/nixpacks-domain-security/)
 
-#### Tags:
+## Where to find this API
 
- - CLI, Build, Plan, Detect
-
-#### Properties
-
-- [Documentation](https://nixpacks.com/docs/cli)
-- [Getting Started](https://nixpacks.com/docs/getting-started)
-- [SourceCode](https://github.com/railwayapp/nixpacks)
-- [Install](https://nixpacks.com/docs/install)
-
-### Nixpacks Build Plan
-The Nixpacks build plan is the JSON representation of how a source directory will be turned into a container image. A plan declares the list of providers, top-level `variables`, `staticAssets`, `buildImage`, and an ordered set of phases (`setup`, `install`, `build`, plus any user-defined phases) along with a `start` phase. Each phase carries `cmds`, `nixPkgs`, `nixLibs`, `aptPkgs`, `dependsOn`, `cacheDirectories`, `onlyIncludeFiles`, and `paths`. Plans can be saved and replayed via `nixpacks build --plan plan.json`.
-
-**Human URL:** [https://nixpacks.com/docs/how-it-works](https://nixpacks.com/docs/how-it-works)
-
-#### Tags:
-
- - Build Plan, JSON, Phases, Reproducible Builds
-
-#### Properties
-
-- [Documentation](https://nixpacks.com/docs/how-it-works)
-- [Reference](https://nixpacks.com/docs/configuration/file)
-
-### Nixpacks Configuration File (nixpacks.toml)
-Projects override or extend the auto-detected build plan by committing a `nixpacks.toml` file at the root of the repository. The file mirrors the build-plan structure with `providers`, `buildImage`, `variables`, `staticAssets`, `[phases.<name>]` tables, and a `[start]` table. The `"..."` token can be used inside array fields to extend rather than replace provider-supplied values.
-
-**Human URL:** [https://nixpacks.com/docs/configuration/file](https://nixpacks.com/docs/configuration/file)
-
-#### Tags:
-
- - Configuration, TOML, Phases, Customization
-
-#### Properties
-
-- [Documentation](https://nixpacks.com/docs/configuration/file)
-- [Reference](https://nixpacks.com/docs/configuration/environment)
-
-### Nixpacks Language Providers
-Providers are the pluggable modules that detect a language or framework in the source directory and contribute their portion of the build plan. Nixpacks ships with providers for Node, Python, Ruby, Go, Java, Rust, PHP, Elixir, Deno, Crystal, C#/.NET, Swift, Scala, Dart, Haskell, Gleam, Zig, Clojure, Lunatic, Cobol, Scheme, F#, and a Staticfile provider. Multiple providers can compose in a single image.
-
-**Human URL:** [https://nixpacks.com/docs/providers](https://nixpacks.com/docs/providers)
-
-#### Tags:
-
- - Providers, Detection, Languages, Frameworks
-
-#### Properties
-
-- [Documentation](https://nixpacks.com/docs/providers)
-- [SourceCode](https://github.com/railwayapp/nixpacks/tree/main/src/providers)
-
-### Nixpacks GitHub Action
-The official GitHub Action wraps the Nixpacks CLI so CI pipelines can build and optionally push OCI images directly from a workflow without installing Nixpacks manually. The action accepts the same overrides as the CLI and is commonly paired with Docker login actions to publish images to GHCR, Docker Hub, or any OCI-compliant registry.
-
-**Human URL:** [https://github.com/iloveitaly/github-action-nixpacks](https://github.com/iloveitaly/github-action-nixpacks)
-
-#### Tags:
-
- - GitHub Actions, CI/CD, Build, Container Image
-
-#### Properties
-
-- [SourceCode](https://github.com/iloveitaly/github-action-nixpacks)
-- [Documentation](https://nixpacks.com/docs/guides/github-actions)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://nixpacks.com)
 - [Documentation](https://nixpacks.com/docs)
-- [Getting Started](https://nixpacks.com/docs/getting-started)
-- [Install](https://nixpacks.com/docs/install)
-- [GitHub Organization](https://github.com/railwayapp)
-- [GitHub Repository](https://github.com/railwayapp/nixpacks)
-- [SourceCode](https://github.com/railwayapp/nixpacks)
-- [License](https://github.com/railwayapp/nixpacks/blob/main/LICENSE)
-- [Issues](https://github.com/railwayapp/nixpacks/issues)
-- [Change Log](https://github.com/railwayapp/nixpacks/releases)
-- [Container Image](https://github.com/railwayapp/nixpacks/pkgs/container/nixpacks)
-- [Provider — Railway](https://railway.app)
-- [Successor — Railpack](https://github.com/railwayapp/railpack)
-- [Twitter](https://twitter.com/Railway)
+- [Getting started](https://nixpacks.com/docs/getting-started)
+- [Changelog](https://github.com/railwayapp/nixpacks/releases)
+- [GitHub](https://github.com/railwayapp)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
+**Kin Score 13.3** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-**Email:** kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 0.0 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nixpacks/](https://apis.io/providers/nixpacks/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Nixpacks: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nixpacks/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
